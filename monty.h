@@ -43,4 +43,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+void stack_init(stack_t **head);
+void read_file(char *filename, stack_t **head);
+void execute_command(char *line, stack_t **head, int line_number);
+void _push(stack_t **head, unsigned int line_number);
+void _pall(stack_t **head, unsigned int line_number);
+
 #endif
