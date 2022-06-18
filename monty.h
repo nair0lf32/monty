@@ -12,6 +12,7 @@
 #include <limits.h>
 #include <ctype.h>
 
+#define DELIMS "\n \t\r"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,7 +46,8 @@ typedef struct instruction_s
 
 
 void stack_init(stack_t **head);
-void read_file(char *filename, stack_t **head);
+void free_all(void);
+int  read_file(char *filename, stack_t **head);
 void execute_command(char *line, stack_t **head, int line_number);
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);

@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
 *stack_init - initialize stack
-*@head: pointer to pointer to stack_t 
+*@head: pointer to pointer to stack_t
 *Return: void
 */
 void stack_init(stack_t **head)
@@ -12,15 +12,21 @@ void stack_init(stack_t **head)
 *read_file - reads the file and executes the commands
 *@filename: name of the file
 *@head: pointer to pointer to stack_t
-*Return: void
+*Return: EXIT_SUCCESS or EXIT_FAILURE
 */
-void read_file(char *filename, stack_t **head)
+int read_file(char *filename, stack_t **head)
 {
 FILE *fp;
 char *line = NULL;
 size_t len = 0;
 ssize_t read;
-int line_number = 1;
+unsigned int line_number = 0;
+char *op;
+if (!filename)
+{
+printf("Error: Can't open file %s\n", filename);
+exit(EXIT_FAILURE);
+}
 fp = fopen(filename, "r");
 if (fp == NULL)
 {
@@ -29,15 +35,19 @@ exit(EXIT_FAILURE);
 }
 while ((read = getline(&line, &len, fp)) != -1)
 {
-execute_command(line, head, line_number);
+op = strtok(line, DELIMS);
 line_number++;
+if (op)
+{
+execute_command(op, head, line_number);
 }
-fclose(fp);
-if (line)
+}
 free(line);
+fclose(fp);
+return (EXIT_SUCCESS);
 }
 /**
-*execute_command - executes the commands 
+*execute_command - executes the commands
 *@line: line of the file
 *@head: pointer to pointer to stack_t
 *@line_number: line number of the file

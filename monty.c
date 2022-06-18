@@ -13,7 +13,9 @@ if (argc != 2)
 {
 printf("USAGE: monty file\n");
 exit(EXIT_FAILURE);
-} else {
+}
+else 
+{
 read_file(argv[1], &head);
 exit(EXIT_SUCCESS);
 }

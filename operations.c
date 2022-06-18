@@ -30,10 +30,10 @@ if (*head != NULL)
 *head = new_node;
 }
 /**
-* _pall - prints all the elements of the stack
-* @head: pointer to pointer to stack_t
-* @line_number: line number of the file
-* Return: void 
+*_pall - prints all the elements of the stack
+*@head: pointer to pointer to stack_t
+*@line_number: line number of the file
+*Return: nothing
 */
 void _pall(stack_t **head, unsigned int line_number)
 {
