@@ -24,13 +24,13 @@ unsigned int line_number = 0;
 char *op;
 if (!filename)
 {
-fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+fprintf(stderr, "Error: Can't open file %s\n", filename);
 exit(EXIT_FAILURE);
 }
 fp = fopen(filename, "r");
 if (fp == NULL)
 {
-fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+fprintf(stderr, "Error: Can't open file %s\n", filename);
 exit(EXIT_FAILURE);
 }
 while ((read = getline(&line, &len, fp)) != -1)
