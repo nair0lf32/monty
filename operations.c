@@ -11,13 +11,13 @@ stack_t *new_node;
 char *token = strtok(NULL, " \n");
 if (token == NULL)
 {
-printf("L%d: usage: push integer\n", line_number);
-return;
+fprintf(stderr, "L%d: usage: push integer\n", line_number);
+exit(EXIT_FAILURE);
 }
 new_node = malloc(sizeof(stack_t));
 if (new_node == NULL)
 {
-printf("Error: malloc failed\n");
+fprintf(stderr, "Error: malloc failed\n");
 exit(EXIT_FAILURE);
 }
 new_node->n = atoi(token);
@@ -40,8 +40,8 @@ void _pall(stack_t **head, unsigned int line_number)
 stack_t *temp = *head;
 if (*head == NULL)
 {
-printf("L%d: stack empty\n", line_number);
-return;
+fprintf(stderr, "L%d: stack empty\n", line_number);
+exit(EXIT_FAILURE);
 }
 while (temp != NULL)
 {

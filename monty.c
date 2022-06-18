@@ -3,7 +3,7 @@
 *main - entry point
 *@argc: argument count
 *@argv: array of arguments
-*Return: EXIT_SUCCESS or EXIT_FAILURE!!!
+*Return: EXIT_SUCCESS or EXIT_FAILURE
 **/
 int main(int argc, char **argv)
 {
@@ -14,7 +14,7 @@ if (argc != 2)
 fprintf(stderr, "USAGE: monty file\n");
 exit(EXIT_FAILURE);
 }
-else 
+else
 {
 read_file(argv[1], &head);
 exit(EXIT_SUCCESS);
